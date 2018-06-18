@@ -4,7 +4,7 @@ import React from 'react'
 const BoardCard = ({ boardName, boardUrl, classStart, classEnd }) => {
 
     return (
-        <div className='mh3 grow'>
+        <div className='mh3 grow pointer'>
             <article className="mw8 center bg-white br3 pa3 pa5-ns mv3 ba b--black-10 shadow-4">
                 <div className="tc">
                     <img src={boardUrl} className="br-100 h4 w4 dib" alt=''
