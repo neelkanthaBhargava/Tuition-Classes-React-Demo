@@ -27,7 +27,7 @@ export default class Boards extends Component {
     render() {
         return (
             <div>
-                <div className='flex flex-wrap flex-nowrap-ns justify-center'>
+                <div className='flex flex-wrap justify-center'>
                     <BoardCard boardName={boards[0].boardName}
                         boardUrl={boards[0].boardUrl}
                         classStart={boards[0].classStart}

@@ -12,7 +12,7 @@ const BoardCard = ({ boardName, boardUrl, classStart, classEnd }) => {
                     <h1 className="f4">{boardName}</h1>
                     <hr className="mw3 bb bw1 b--black-10" />
                 </div>
-                <p className="lh-copy measure center f6 black-70">
+                <p className="lh-copy measure center f6 black-70 tc">
                     {`From Classes ${classStart} to ${classEnd}`}
                 </p>
             </article>
