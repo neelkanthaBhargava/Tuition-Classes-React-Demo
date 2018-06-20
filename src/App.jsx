@@ -6,6 +6,8 @@ import Home from './components/home/Home';
 import Boards from './components/home/Boards';
 import Footer from './components/navigation/Footer';
 import CommonNav from './components/navigation/CommonNav';
+import Signin from './components/signin/Signin';
+import Register from './components/register/Register';
 
 const initialState = {
   route: 'home',
@@ -20,7 +22,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-  } 
+  }
 
   onRouteChange = (route) => {
     if (route === 'signout')
@@ -36,15 +38,25 @@ class App extends Component {
       <div >
         {
           route === 'home'
-          ? <div>
-          <NavTop onRouteChange={this.onRouteChange} route={route} isSignedIn={isSignedIn} />
+            ? <div>
+              <NavTop onRouteChange={this.onRouteChange} route={route} isSignedIn={isSignedIn} />
               <Home />
               <Boards />
             </div>
             : <div>
               <CommonNav onRouteChange={this.onRouteChange} route={route} isSignedIn={isSignedIn} />
-            {`Something route ${route}`}</div>
-          }
+              {
+                route === 'signin'
+                  ? <Signin />
+                  : <div>{
+                    route === 'signup'
+                      ? <Register />
+                      : <div>{route}</div>
+                  }
+                  </div>
+              }
+            </div>
+        }
         <Footer />
       </div>
     );
