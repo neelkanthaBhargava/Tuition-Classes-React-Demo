@@ -14,6 +14,14 @@ const initialState = {
   user: {
     uname: '',
     email: '',
+    fathersName: '',
+    mothersName: '',
+    fathersContact: '',
+    mothersContact: '',
+    std: '',
+    board: '',
+    school: '',
+    address: '',
   },
   isSignedIn: false
 }
@@ -23,6 +31,23 @@ class App extends Component {
     super(props);
     this.state = initialState;
   }
+
+  loadUser = (data) => {
+    this.setState({
+      user: {
+        uname: data.uname,
+        email: data.email,
+        fathersName: data.fathersName,
+        mothersName: data.mothersName,
+        fathersContact: data.fathersContact,
+        mothersContact: data.mothersContact,
+        std: data.std,
+        board: data.board,
+        school: data.school,
+        address: data.address,
+      }
+    });
+  };
 
   onRouteChange = (route) => {
     if (route === 'signout')
@@ -47,7 +72,7 @@ class App extends Component {
               <CommonNav onRouteChange={this.onRouteChange} route={route} isSignedIn={isSignedIn} />
               {
                 route === 'signin'
-                  ? <Signin />
+                  ? <Signin onRouteChange={this.onRouteChange} />
                   : <div>{
                     route === 'signup'
                       ? <Register />

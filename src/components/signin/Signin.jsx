@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 
 
 
-
 export default class Signin extends Component {
     constructor(props) {
         super(props);
@@ -11,6 +10,9 @@ export default class Signin extends Component {
             title: '',
             link1: 'Faculty',
             link2: 'Admin',
+            validPass: false,
+            email: '',
+            pass: ''
         }
     }
 
@@ -64,8 +66,11 @@ export default class Signin extends Component {
         }
     }
 
+  
+
     render() {
-        const { title, link1, link2 } = this.state;
+        const { title, link1, link2, validPass, pass } = this.state;
+        const { onRouteChange } = this.props;
         return (
             <article className="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 shadow-4">
                 <div className="tc pa5">
@@ -99,6 +104,7 @@ export default class Signin extends Component {
                                     name="password"
                                     id="password"
                                 />
+                                
                             </div>
                         </fieldset>
                         <div className="">
@@ -109,7 +115,7 @@ export default class Signin extends Component {
                             />
                         </div>
                         <div className="lh-copy mt3">
-                            <span className="f6 link dim blue db pointer pt3 pa1">Register</span>
+                            <span onClick={() => { onRouteChange('signup') }} className="f6 link dim blue db pointer pt3 pa1">Register</span>
                             <span onClick={this.onClickLink1} className="f6 link dim blue db pointer pa1">{`${link1} Login`}</span>
                             <span onClick={this.onClickLink2} className="f6 link dim blue db pointer pa1">{`${link2} Login`}</span>
                         </div>

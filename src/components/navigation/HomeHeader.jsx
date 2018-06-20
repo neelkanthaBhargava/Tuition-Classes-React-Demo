@@ -18,7 +18,7 @@ const HomeHeader = ({ onRouteChange, isSignedIn }) => {
                                 Sign In
                             </div>
                             <span className="f5 dib pv2 ph4 white-70 mb2">or</span>
-                            <div className="f5 grow-large no-underline br-pill ph4 pv2 mb2 dib white bg-dark-gray shadow-5 pointer"
+                            <div className="f5 grow-large no-underline br-pill ph4 pv2 mb2 dib white bg-dark-pink shadow-5 pointer"
                                 onClick={() => onRouteChange('signup')}>
                                 Sign Up
                             </div>

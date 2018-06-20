@@ -25,23 +25,19 @@ const boards = [
 export default class Boards extends Component {
 
     render() {
+        const boardArray = boards.map((board, i) => {
+            return (
+                <BoardCard
+                    key={boards[i].boardName}
+                    boardName={boards[i].boardName}
+                    boardUrl={boards[i].boardUrl}
+                    classStart={boards[i].classStart}
+                    classEnd={boards[i].classEnd} />
+            );
+        });
         return (
-            <div>
-                <div className='flex flex-wrap justify-center'>
-                    <BoardCard boardName={boards[0].boardName}
-                        boardUrl={boards[0].boardUrl}
-                        classStart={boards[0].classStart}
-                        classEnd={boards[0].classEnd} />
-                    <BoardCard boardName={boards[1].boardName}
-                        boardUrl={boards[1].boardUrl}
-                        classStart={boards[1].classStart}
-                        classEnd={boards[1].classEnd} />
-                    <BoardCard boardName={boards[2].boardName}
-                        boardUrl={boards[2].boardUrl}
-                        classStart={boards[2].classStart}
-                        classEnd={boards[2].classEnd} />
-
-                </div>
+            <div className='flex flex-wrap justify-center'>
+                {boardArray} 
             </div>
         )
     }

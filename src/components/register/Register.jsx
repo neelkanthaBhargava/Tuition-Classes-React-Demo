@@ -1,8 +1,40 @@
 //@ts-check
 import React, { Component } from 'react';
+import { isPasswordValid, isEmailValid } from '../../utilities/Validation';
+
 
 export default class FacultyLogin extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            validPass: false,
+            validEmail: false,
+            email: '',
+            pass: ''
+        }
+    }
+
+    onPasswordChange = (event) => {
+        const pass = event.target.value;
+        // console.log('pass',pass);
+        if (isPasswordValid(pass))
+            this.setState({ validPass: true });
+        else this.setState({ validPass: false });
+        this.setState({ pass: pass });
+    }
+
+    onEmailChange = (event) => {
+        const email = event.target.value;
+        // console.log('pass',pass);
+        if (isEmailValid(email))
+            this.setState({ validEmail: true });
+        else this.setState({ validEmail: false });
+        this.setState({ email: email });
+    }
+
     render() {
+        const { pass, validPass, email, validEmail } = this.state;
         return (
             <div>
                 <article className="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 shadow-4">
@@ -32,11 +64,19 @@ export default class FacultyLogin extends Component {
                                         Email :
                                     </label>
                                     <input
+                                        onChange = {this.onEmailChange}
                                         className="pa2 br2 tc input-reset ba bg-transparent bg-animate hover-bg-light-silver hover-white w-100"
                                         type="email"
                                         name="email-address"
                                         id="email-address"
                                     />
+                                    {
+                                        email !== '' ?
+                                            <div
+                                                className={`br2 pa2 mt2 ba w-100 ${validEmail ? 'bg-light-green dark-green' : 'dark-red bg-washed-red'}`}>
+                                                {validEmail ? 'Correct Email!!!!!!' : 'Incorrect Email!!!!!!' }
+                                            </div> : <span></span>
+                                    }
                                 </div>
                                 <div className="pa3">
                                     <label className="db fw6 lh-copy f6 pb1"
@@ -44,11 +84,27 @@ export default class FacultyLogin extends Component {
                                         Password :
                                     </label>
                                     <input
+                                        onChange={this.onPasswordChange}
                                         className="br2 pa2 tc input-reset ba bg-transparent bg-animate hover-bg-light-silver hover-white w-100"
                                         type="password"
                                         name="password"
                                         id="password"
                                     />
+                                    {
+                                        pass !== '' ?
+                                            <div
+                                                className={`br2 pa2 mt2 ba w-100 ${validPass ? 'bg-light-green dark-green' : 'dark-red bg-washed-red'}`}>
+                                                {validPass ? 'Correct password!!!!!!' : <div>
+                                                    Weak Password :-( <br />
+                                                    <ul  className='tl'>
+                                                        <li>Password must be 8-16 characters in length.</li>
+                                                        <li>It must contain atleast one Upper case and one Lower Case</li>
+                                                        <li>It must contain atleast one digit</li>
+                                                        <li>It must contain atlest one special character(!@#\$%&^*)</li>
+                                                    </ul>
+                                                </div>}
+                                            </div> : <span></span>
+                                    }
                                 </div>
                                 <div className="pa3">
                                     <label className="db fw6 lh-copy f6 pb1"
