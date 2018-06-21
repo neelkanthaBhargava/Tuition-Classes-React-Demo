@@ -1,5 +1,5 @@
 //@ts-check
-
+    
 
     export const isPasswordValid = (pass) => {
         const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16})");
@@ -29,14 +29,6 @@
             return true;
         }
         return false;
-    }
-
-    export const isClassValid = (std) => {
-
-    }
-
-    export const isBoardValid = (board) => {
-
     }
 
 

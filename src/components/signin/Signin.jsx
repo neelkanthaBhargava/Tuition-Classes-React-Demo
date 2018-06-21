@@ -7,7 +7,7 @@ export default class Signin extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: '',
+            title: 'Student',
             link1: 'Faculty',
             link2: 'Admin',
             validPass: false,
@@ -18,8 +18,7 @@ export default class Signin extends Component {
 
     onClickLink1 = () => {
         const { link1, link2 } = this.state;
-        if (link1 === 'Student') this.setState({ title: '' });
-        else this.setState({ title: link1 });
+        this.setState({ title: link1 });
 
         if (link1 === 'Faculty' && link2 === 'Admin') {
             this.setState({ link1: 'Student' });
@@ -69,7 +68,7 @@ export default class Signin extends Component {
   
 
     render() {
-        const { title, link1, link2, validPass, pass } = this.state;
+        const { title, link1, link2} = this.state;
         const { onRouteChange } = this.props;
         return (
             <article className="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 shadow-4">
