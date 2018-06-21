@@ -42,8 +42,7 @@ export default class Signin extends Component {
 
     onClickLink2 = () => {
         const { link1, link2 } = this.state;
-        if (link2 === 'Student') this.setState({ title: '' });
-        else this.setState({ title: link2 });
+        this.setState({ title: link2 });
 
         if (link2 === 'Faculty' && link1 === 'Admin') {
             this.setState({ link2: 'Student' });
