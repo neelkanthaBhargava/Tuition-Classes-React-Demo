@@ -1,7 +1,6 @@
 //@ts-check
-    
-
     export const isPasswordValid = (pass) => {
+        // eslint-disable-next-line
         const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16})");
         if (strongRegex.test(pass)) {
             return true;
@@ -10,6 +9,7 @@
     }
 
     export const isEmailValid = (email) => {
+        // eslint-disable-next-line
         const strongRegex = new RegExp("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$");
         if (strongRegex.test(email)) {
             return true;
@@ -30,5 +30,3 @@
         }
         return false;
     }
-
-

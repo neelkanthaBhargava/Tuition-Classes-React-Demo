@@ -1,13 +1,8 @@
 //@ts-check
 import React, { Component } from 'react';
 import './App.css';
-import NavTop from './components/navigation/NavTop';
-import Home from './components/home/Home';
-import Boards from './components/home/Boards';
 import Footer from './components/navigation/Footer';
-import CommonNav from './components/navigation/CommonNav';
-import Signin from './components/signin/Signin';
-import Register from './components/register/Register';
+import ChangeRoute from './utilities/ChangeRoute';
 
 const initialState = {
   route: 'home',
@@ -61,27 +56,7 @@ class App extends Component {
     const { route, isSignedIn } = this.state;
     return (
       <div >
-        {
-          route === 'home'
-            ? <div>
-              <NavTop onRouteChange={this.onRouteChange} route={route} isSignedIn={isSignedIn} />
-              <Home />
-              <Boards />
-            </div>
-            : <div>
-              <CommonNav onRouteChange={this.onRouteChange} route={route} isSignedIn={isSignedIn} />
-              {
-                route === 'signin'
-                  ? <Signin onRouteChange={this.onRouteChange} />
-                  : <div>{
-                    route === 'signup'
-                      ? <Register />
-                      : <div>{route}</div>
-                  }
-                  </div>
-              }
-            </div>
-        }
+        <ChangeRoute route={route} isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         <Footer />
       </div>
     );

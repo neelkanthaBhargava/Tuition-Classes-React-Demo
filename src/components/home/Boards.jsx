@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BoardCard from './boardcard/BoardCard';
+import BoardDetailCard from './boardcard/BoardDetailCard';
 
 const boards = [
     {
@@ -23,21 +24,40 @@ const boards = [
 ];
 
 export default class Boards extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            boardSelected: 'icse'
+        }
+    }
+
+    onBoardClick = (board) => {
+        this.setState({ boardSelected: board });
+    }
 
     render() {
+        const { boardSelected } = this.state;
         const boardArray = boards.map((board, i) => {
             return (
                 <BoardCard
-                    key={boards[i].boardName}
-                    boardName={boards[i].boardName}
-                    boardUrl={boards[i].boardUrl}
-                    classStart={boards[i].classStart}
-                    classEnd={boards[i].classEnd} />
+                    onBoardClick={this.onBoardClick}
+                    key={board.boardName}
+                    boardName={board.boardName}
+                    boardUrl={board.boardUrl}
+                    classStart={board.classStart}
+                    classEnd={board.classEnd} />
             );
         });
         return (
-            <div className='flex flex-wrap justify-center'>
-                {boardArray} 
+            <div>
+                <div className='flex flex-wrap justify-center'>
+                    {boardArray}
+                </div>
+                {
+                    boardSelected !== ''
+                        ? <BoardDetailCard boardSelected={boardSelected} />
+                        : <div></div>
+                }
             </div>
         )
     }

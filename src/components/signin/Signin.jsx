@@ -1,8 +1,6 @@
 //@ts-check
 import React, { Component } from 'react'
 
-
-
 export default class Signin extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +8,8 @@ export default class Signin extends Component {
             title: 'Student',
             link1: 'Faculty',
             link2: 'Admin',
-            validPass: false,
+            validPass: true,
+            validEmail: true,
             email: '',
             pass: ''
         }
@@ -64,10 +63,16 @@ export default class Signin extends Component {
         }
     }
 
-  
+    onEmailChange = (event) =>{
+        this.setState({email: event.target.value});
+    }
+
+    onPasswordChange = (event) =>{
+        this.setState({pass: event.target.value});
+    }
 
     render() {
-        const { title, link1, link2} = this.state;
+        const { title, link1, link2, validEmail, validPass, email, pass } = this.state;
         const { onRouteChange } = this.props;
         return (
             <article className="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 shadow-4">
@@ -85,7 +90,8 @@ export default class Signin extends Component {
                                     Email :
                                     </label>
                                 <input
-                                    className="pa2 br2 input-reset ba bg-transparent bg-animate hover-bg-light-silver hover-white w-100"
+                                    onChange={this.onEmailChange}
+                                    className="pa2 br2 tc input-reset ba bg-transparent bg-animate hover-bg-light-silver hover-white w-100"
                                     type="email"
                                     name="email-address"
                                     id="email-address"
@@ -97,13 +103,22 @@ export default class Signin extends Component {
                                     Password :
                                     </label>
                                 <input
-                                    className="br2 pa2 input-reset ba bg-transparent bg-animate hover-bg-light-silver hover-white w-100"
+                                    onChange={this.onPasswordChange}
+                                    className="br2 pa2 tc input-reset ba bg-transparent bg-animate hover-bg-light-silver hover-white w-100"
                                     type="password"
                                     name="password"
                                     id="password"
                                 />
-                                
+
                             </div>
+                            {
+                                email !== '' && pass !== ''
+                                    ? <div
+                                        className={` ${validEmail && validPass ? '' : 'br2 pa2 mt2 ba w-100 dark-red bg-washed-red'}`}>
+                                        {validEmail && validPass ? '' : 'Inavlid Email or Password!!!!!!'}
+                                    </div>
+                                    : <span></span>
+                            }
                         </fieldset>
                         <div className="">
                             <input
