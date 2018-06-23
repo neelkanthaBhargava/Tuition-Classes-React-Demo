@@ -5,6 +5,8 @@ import Boards from '../components/home/Boards';
 import CommonNav from '../components/navigation/CommonNav';
 import Signin from '../components/signin/Signin';
 import Register from '../components/register/Register';
+import About from '../components/About/About';
+import ContactUs from '../components/ContactUs/ContactUs';
 
 export default class ChangeRoute extends Component {
     render() {
@@ -25,15 +27,24 @@ export default class ChangeRoute extends Component {
                 </div>
             )
             case 'signup': return (
-
                 <div>
                     <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
                     <Register />
                 </div>
-            )
+            );
+            case 'about': return (
+                <div>
+                    <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                    <About />
+                </div>
+            );
+            case 'contact': return (
+                <div>
+                    <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                    <ContactUs />
+                </div>
+            );
             case 'dashboard':
-            case 'about':
-            case 'contactus':
             default: return (<div>
                 <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
                 {route}
