@@ -7,46 +7,79 @@ import Signin from '../components/signin/Signin';
 import Register from '../components/register/Register';
 import About from '../components/About/About';
 import ContactUs from '../components/ContactUs/ContactUs';
+import Dashboard from '../components/dash/Dashboard';
 
 export default class ChangeRoute extends Component {
     render() {
-        const { route, onRouteChange, isSignedIn } = this.props;
+        const { route, onRouteChange, isSignedIn, userType, user } = this.props;
         switch (route) {
             case 'home': return (
                 <div>
-                    <NavTop onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                    <NavTop
+                        onRouteChange={onRouteChange}
+                        route={route}
+                        isSignedIn={isSignedIn}
+                        userType={userType} />
                     <Home />
                     <Boards />
                 </div>
             );
             case 'signin': return (
                 <div>
-                    <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                    <CommonNav
+                        onRouteChange={onRouteChange}
+                        route={route}
+                        isSignedIn={isSignedIn}
+                        userType={userType} />
                     <Signin onRouteChange={onRouteChange} />
 
                 </div>
             )
             case 'signup': return (
                 <div>
-                    <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                    <CommonNav
+                        onRouteChange={onRouteChange}
+                        route={route}
+                        isSignedIn={isSignedIn}
+                        userType={userType} />
                     <Register />
                 </div>
             );
             case 'about': return (
                 <div>
-                    <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                    <CommonNav
+                        onRouteChange={onRouteChange}
+                        route={route}
+                        isSignedIn={isSignedIn}
+                        userType={userType} />
                     <About />
                 </div>
             );
             case 'contact': return (
                 <div>
-                    <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                    <CommonNav
+                        onRouteChange={onRouteChange}
+                        route={route}
+                        isSignedIn={isSignedIn}
+                        userType={userType} />
                     <ContactUs />
                 </div>
             );
-            case 'dashboard':
+            case 'dashboard': return (<div>
+                <CommonNav
+                    onRouteChange={onRouteChange}
+                    route={route}
+                    isSignedIn={isSignedIn}
+                    userType={userType} />
+                <Dashboard user={user} userType={userType} />
+                {route}
+            </div>)
             default: return (<div>
-                <CommonNav onRouteChange={onRouteChange} route={route} isSignedIn={isSignedIn} />
+                <CommonNav
+                    onRouteChange={onRouteChange}
+                    route={route}
+                    isSignedIn={isSignedIn}
+                    userType={userType} />
                 {route}
             </div>)
         }

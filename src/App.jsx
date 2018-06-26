@@ -5,20 +5,23 @@ import Footer from './components/navigation/Footer';
 import ChangeRoute from './utilities/ChangeRoute';
 
 const initialState = {
-  route: 'home',
+  route: 'dashboard',
   user: {
-    uname: '',
-    email: '',
-    fathersName: '',
-    mothersName: '',
-    fathersContact: '',
-    mothersContact: '',
-    std: '',
-    board: '',
-    school: '',
-    address: '',
+    uname: 'Neelkantha Bhargava',
+    email: 'neelkantha.96@gmail.com',
+    contact: '7073157574',
+    fathersName: 'Manish Bhargava',
+    mothersName: 'Mansha Bhargava',
+    fathersContact: '9026218183',
+    mothersContact: '9453127569',
+    std: '10',
+    board: 'ICSE',
+    school: 'CMS',
+    salary: '30000.50',
+    address: 'ABCD',
   },
-  isSignedIn: false
+  isSignedIn: true,
+  userType: 'student'
 }
 
 class App extends Component {
@@ -40,23 +43,31 @@ class App extends Component {
         board: data.board,
         school: data.school,
         address: data.address,
-      }
+      },
+      userType: data.userType,
+      isSignedIn: true,
     });
   };
 
   onRouteChange = (route) => {
     if (route === 'signout')
       this.setState(initialState);
-    else if (route === 'dashboard')
-      this.setState({ isSignedIn: true });
+    /* else if (route === 'dashboard')
+      this.setState({ isSignedIn: true }); */
     else this.setState({ route: route });
   }
 
   render() {
-    const { route, isSignedIn } = this.state;
+    const { route, isSignedIn, userType, user } = this.state;
     return (
       <div >
-        <ChangeRoute route={route} isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+        <ChangeRoute
+          route={route}
+          isSignedIn={isSignedIn}
+          onRouteChange={this.onRouteChange}
+          userType={userType}
+          user={user}
+        />
         <Footer />
       </div>
     );

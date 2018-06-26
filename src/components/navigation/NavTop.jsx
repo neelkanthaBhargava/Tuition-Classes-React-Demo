@@ -7,7 +7,7 @@ import CommonNav from './CommonNav';
 class NavTop extends Component {
 
     render() {
-        const { onRouteChange, route, isSignedIn } = this.props;
+        const { onRouteChange, route, isSignedIn, userType } = this.props;
         return (
             <div>
                 <header >
@@ -16,7 +16,8 @@ class NavTop extends Component {
                             <CommonNav
                                 onRouteChange={onRouteChange}
                                 route = {route}
-                                isSignedIn={isSignedIn} />
+                                isSignedIn={isSignedIn}
+                                userType={userType} />
                             <HomeHeader
                                 onRouteChange={onRouteChange}
                                 isSignedIn={isSignedIn} />
