@@ -5,7 +5,7 @@ import Footer from './components/navigation/Footer';
 import ChangeRoute from './utilities/ChangeRoute';
 
 const initialState = {
-  route: 'dashboard',
+  route: 'studentpayment',
   user: {
     uname: 'Neelkantha Bhargava',
     email: 'neelkantha.96@gmail.com',

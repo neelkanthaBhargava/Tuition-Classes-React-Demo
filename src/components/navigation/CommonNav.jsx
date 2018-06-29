@@ -39,11 +39,11 @@ export default class CommonNav extends Component {
                                                     Payments</p>
                                                 : userType === 'faculty'
                                                     ? <p className="f6 fw4 hover-white no-underline white-70 dib pv2 ph3 pointer"
-                                                        onClick={() => onRouteChange('studentsList')}>
+                                                        onClick={() => onRouteChange('studentlist')}>
                                                         Students List</p>
                                                     : userType === 'admin'
                                                         ? <p className="f6 fw4 hover-white no-underline white-70 dib pv2 ph3 pointer"
-                                                            onClick={() => onRouteChange('facultyList')}>
+                                                            onClick={() => onRouteChange('facultylist')}>
                                                             Faculty List</p>
                                                         : <p></p>
 

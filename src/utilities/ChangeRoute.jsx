@@ -8,6 +8,9 @@ import Register from '../components/register/Register';
 import About from '../components/About/About';
 import ContactUs from '../components/ContactUs/ContactUs';
 import Dashboard from '../components/dash/Dashboard';
+import StudentList from '../components/studentList/StudentList';
+import FacultyList from '../components/lists/FacultyList';
+import StudentPayment from '../components/payments/StudentPayment';
 
 export default class ChangeRoute extends Component {
     render() {
@@ -72,7 +75,30 @@ export default class ChangeRoute extends Component {
                     isSignedIn={isSignedIn}
                     userType={userType} />
                 <Dashboard user={user} userType={userType} />
-                {route}
+            </div>)
+            case 'studentlist': return (<div>
+                <CommonNav
+                    onRouteChange={onRouteChange}
+                    route={route}
+                    isSignedIn={isSignedIn}
+                    userType={userType} />
+                <StudentList />
+            </div>)
+            case 'facultylist': return (<div>
+                <CommonNav
+                    onRouteChange={onRouteChange}
+                    route={route}
+                    isSignedIn={isSignedIn}
+                    userType={userType} />
+                <FacultyList />
+            </div>)
+            case 'studentpayment': return (<div>
+                <CommonNav
+                    onRouteChange={onRouteChange}
+                    route={route}
+                    isSignedIn={isSignedIn}
+                    userType={userType} />
+                <StudentPayment user={user} userType={userType} />
             </div>)
             default: return (<div>
                 <CommonNav
