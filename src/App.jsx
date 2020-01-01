@@ -5,23 +5,23 @@ import Footer from './components/navigation/Footer';
 import ChangeRoute from './utilities/ChangeRoute';
 
 const initialState = {
-  route: 'studentpayment',
+  route: 'home',
   user: {
-    uname: 'Neelkantha Bhargava',
-    email: 'neelkantha.96@gmail.com',
-    contact: '7073157574',
-    fathersName: 'Manish Bhargava',
-    mothersName: 'Mansha Bhargava',
-    fathersContact: '9026218183',
-    mothersContact: '9453127569',
-    std: '10',
-    board: 'ICSE',
-    school: 'CMS',
-    salary: '30000.50',
-    address: 'ABCD',
+    uname: '',
+    email: '',
+    contact: '',
+    fathersName: '',
+    mothersName: '',
+    fathersContact: '',
+    mothersContact: '',
+    std: '',
+    board: '',
+    school: '',
+    salary: '',
+    address: '',
   },
-  isSignedIn: true,
-  userType: 'student'
+  isSignedIn: false,
+  userType: ''
 }
 
 class App extends Component {

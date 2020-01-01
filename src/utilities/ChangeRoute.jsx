@@ -8,7 +8,7 @@ import Register from '../components/register/Register';
 import About from '../components/About/About';
 import ContactUs from '../components/ContactUs/ContactUs';
 import Dashboard from '../components/dash/Dashboard';
-import StudentList from '../components/studentList/StudentList';
+import StudentList from '../components/lists/StudentList';
 import FacultyList from '../components/lists/FacultyList';
 import StudentPayment from '../components/payments/StudentPayment';
 
